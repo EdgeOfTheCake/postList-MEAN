@@ -27,13 +27,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/api/posts", postsRoutes);
+app.use("/api/user", userRoutes);
+
 app.use("/", express.static(path.join(__dirname, "../dist/mean-course01")));
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "../dist/mean-course01/index.html"));
 });
-
-app.use("/api/posts", postsRoutes);
-app.use("/api/user", userRoutes);
 
 module.exports = app;
